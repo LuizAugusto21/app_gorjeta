@@ -31,13 +31,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final TextEditingController _controller = TextEditingController();
-  double? _gorjeta; // Variável para armazenar o valor da gorjeta
+  double? _gorjeta;
 
   void _calcularGorjeta() {
     double? valorConta = double.tryParse(_controller.text.replaceAll(',', '.'));
     if (valorConta != null) {
       setState(() {
-        _gorjeta = valorConta * 0.10; // Calcula 10% do valor digitado
+        _gorjeta = valorConta * 0.10;
       });
     }
   }
@@ -54,16 +54,16 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.blueGrey,
       ),
       body: Container(
-        color: const Color.fromRGBO(181, 192, 201, 1), // Fundo cinza-azulado
+        color: const Color.fromRGBO(181, 192, 201, 1),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               children: [
                 ClipRRect(
                   borderRadius:
-                      BorderRadius.circular(20.0), // Borda arredondada
+                      BorderRadius.circular(20.0),
                   child: Image.asset(
-                    'images/Gorjeta.png', // URL de uma imagem aleatória
+                    'images/Gorjeta.png',
                     width: 150,
                     height: 150,
                     fit: BoxFit.cover,
@@ -73,10 +73,9 @@ class _HomeState extends State<Home> {
                   width: 300,
                   child: TextFormField(
                     controller:
-                        _controller, // Controlador para capturar o valor digitado
+                        _controller,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      // labelText: "Digite o Valor da Conta",
                       hintText: "Digite o Valor da Conta",
                       fillColor: Colors.white,
                       filled: true,
@@ -97,7 +96,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 16), // Espaçamento entre os elementos
+                const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: _calcularGorjeta,
                   child: const Text("Calcular"),
